@@ -1,0 +1,17 @@
+[package]
+name = "spoofer_core"
+version = "1.0.0"
+edition = "2024"
+license = "MIT"
+
+[lib]
+crate-type = ["staticlib", "rlib"]
+
+[dependencies]
+idevice = { git = "https://github.com/jkcoxson/idevice", rev = "89702099f4d7552f704f93b4526756abda319ceb", default-features = false, features = [
+    "ring", "tcp", "rsd", "xpc", "remote_pairing", "tunnel_tcp_stack", "dvt", "location_simulation",
+] }
+tokio = { version = "1", features = ["rt", "net", "time", "sync"] }
+
+[dev-dependencies]
+idevice = { git = "https://github.com/jkcoxson/idevice", rev = "89702099f4d7552f704f93b4526756abda319ceb", default-features = false, features = ["remote_pairing"] }
